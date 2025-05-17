@@ -1,10 +1,9 @@
-import { Button, Center, SimpleGrid, Spinner } from "@chakra-ui/react"
+import { Center, SimpleGrid, Spinner } from "@chakra-ui/react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 import { api } from "../api"
 import CardInfo from "../components/CardInfo"
 import { AppContext } from "../components/AppContext"
-import DButton from "../components/DButton"
 
 interface UserData {
     email: string
@@ -14,7 +13,7 @@ interface UserData {
     id: string
 }
 
-const Conta = () => {
+const AccountInfos = () => {
     const [ userData, setUserData ] = useState<null | UserData>()
     const { id } = useParams()
     const navigate = useNavigate()
@@ -39,7 +38,6 @@ const Conta = () => {
     }
   
     return (
-        <>
         <Center>
             <SimpleGrid columns={2} spacing={8} paddingTop={16}>
                 {
@@ -51,16 +49,14 @@ const Conta = () => {
                     ) : 
                     (
                         <>
-                            <CardInfo mainContent={`Bem vindo ${userData?.name}`} content={`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
-                            <CardInfo mainContent='Saldo' content={`R$ ${userData.balance}`}/>
+                            <CardInfo mainContent='Bem vindo' content={`${userData?.name}`}/>
+                            <CardInfo mainContent='E-mail' content={`${userData.email}`}/>
                         </>
                     )
                 }
-                <Button onClick={() => navigate('/accountinfos/1')}>Dados Pessoais</Button>
             </SimpleGrid>    
         </Center>
-        </>
     )
 }
 
-export default Conta
+export default AccountInfos
