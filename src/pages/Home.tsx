@@ -19,7 +19,7 @@ const Home = () => {
             setIsLoggedIn(true);
             navigate('/conta/1');
         }
-    }, []);
+    }, [navigate, setIsLoggedIn]);
 
     const validateUser = async (email: string, password: string) => {
         const loggedIn = await login(email, password);
