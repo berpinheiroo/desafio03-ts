@@ -31,8 +31,6 @@ const AccountInfos = () => {
         getData()
     }, [])
 
-    const actualData = new Date()
-
     if(userData && id !== userData.id) {
         navigate('/')
     }

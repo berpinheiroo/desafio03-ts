@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react"
 import { api } from "../api"
 import CardInfo from "../components/CardInfo"
 import { AppContext } from "../components/AppContext"
-import DButton from "../components/DButton"
 
 interface UserData {
     email: string
